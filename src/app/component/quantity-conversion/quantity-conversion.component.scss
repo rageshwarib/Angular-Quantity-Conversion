@@ -1,0 +1,82 @@
+.card-style{
+    width : 50%;
+    height : 200px;
+    background-color: white ;
+    display: block grid; 
+ position: relative;
+ padding: 38px;
+ border-radius: 18px;
+ display: flex;
+ justify-content: space-between;
+ flex-direction: column;
+   
+}
+ng-deep .mat-form-field-underline {
+    display: none;
+  }
+  .qm-input-style{
+      width: 100%;
+      height: 30px;
+  }
+  .qm-input-div{
+      width: 45%;
+  }
+.space{
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+.qm-unit-unit-selector{
+    @extend .select-style;
+     width: 100%;
+    
+
+}
+
+.card-shift{
+    display:flex;
+    justify-content: center; 
+ }
+ .space-unit{
+     margin-top: 0in;
+ }
+ .space-unit1{
+     margin-bottom: 0in;
+
+ }
+
+ 
+ .select-style{
+    border: 1px solid gray;
+    font-size: 13px;
+    line-height: 10px;
+    vertical-align: middle;
+    background-color: whitesmoke ;
+    width : 100%;
+   
+  }
+
+  .UnitStyle{
+    border: 2px groove rosybrown;
+  }
+ .select-style1{
+    border: 2px groove rosybrown;
+    font-size: 13px;
+    line-height: 200px;
+   
+    vertical-align: middle;
+    
+    margin-top: 0%;
+    padding: 10px 170px 0px 5px;
+    
+    background-color: whitesmoke ;
+   
+   .value-style{
+      scroll-behavior :horizontal ;
+   }
+
+}
+
+
+
+

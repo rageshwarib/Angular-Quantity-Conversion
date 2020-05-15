@@ -1,0 +1,74 @@
+<div class="card-shift">
+  <mat-card class="card-style">
+    <mat-form-field class="select-style">
+
+      <mat-label>Quantity</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let quantitytypes of quantityTypes">
+          {{quantitytypes}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- </form> 
+  
+   
+  
+ <br>
+ <br>
+      <!-- <mat-form-field >
+      <mat-select class="select-style">
+        <label Quantity></label>
+        <mat-option *ngFor="let quantitytypes of quantityTypes">
+          {{quantitytypes}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <div class="space">
+      <div class = "qm-input-div">
+        <input class="qm-input-style" [(ngModel)]="value">
+        <mat-form-field class = "qm-unit-unit-selector" appearance="fill">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let quantitytypes of quantityTypes">
+              {{quantitytypes}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <h1>=</h1>
+      <div class = "qm-input-div">
+        <input class="qm-input-style" [(ngModel)]="value">
+        <mat-form-field class = "qm-unit-unit-selector" appearance="fill">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let quantitytypes of quantityTypes">
+              {{quantitytypes}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+   
+      
+
+
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let quantitytypes of quantityTypes">
+            {{quantitytypes}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+    
+
+
+
+  </mat-card>
+
+</div>
