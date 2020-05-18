@@ -4,7 +4,7 @@ import { QuantityConversionComponent } from './component/quantity-conversion/qua
 
 
 const routes: Routes = [
-  { path : 'quantityconversion', component : QuantityConversionComponent }
+  { path : '', component : QuantityConversionComponent }
 ];
 
 @NgModule({

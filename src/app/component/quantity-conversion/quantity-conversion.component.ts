@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/sevice/http.service';
-import { HttpParams } from "@angular/common/http";
+import { Unit } from 'src/app/model/unit';
 
 
 @Component({
@@ -9,32 +9,62 @@ import { HttpParams } from "@angular/common/http";
   styleUrls: ['./quantity-conversion.component.scss']
 })
 export class QuantityConversionComponent implements OnInit {
-  public value: number;
-  public quantityTypes = ["Length", "Volume", "Temperature"]
+  public value = 1;
+  public result = 1;
+  public quantityTypes = [];
+  public unitTypes = [];
+  public unitObj = new Unit();
   constructor(private httpservice: HttpService) { }
 
 
   ngOnInit(): void {
-    this.quantity(),
-      this.unit(this.unit)
+    this.getQuantity()
+
 
   }
-
-  public quantity() {
+//To fetch the quantities
+  public getQuantity() {
     {
-      this.httpservice.getQuantity().subscribe(data => {
-        for (let i = 0; i < data.length; i++) {
-          this.quantityTypes.push(data[i])
-        }
+      this.httpservice.getQuantity().subscribe(data => 
+         {
+           this.quantityTypes = data
+        this.getUnit(this.quantityTypes[0]) //by defualt length
       });
-      console.log(this.quantityTypes)
     }
   }
-  public unit(unit: any) {
-    this.httpservice.getUnit(unit);
-    console.log(this.unit)
+  // To fetch Quantity Unit type
+  public getUnit(requiredQuantity) {
+    this.unitTypes = [];
+    this.httpservice.getUnit(requiredQuantity).subscribe(data => {
+      this.unitTypes = data
+     
+      this.unitObj.quantityType = requiredQuantity;
+      this.unitObj.toUnit = this.unitTypes[0]; //by default inch
+
+      this.unitObj.fromUnit = this.unitTypes[0];
+    });
+    console.log(this.unitTypes)
+    console.log(this.unitObj)
 
   }
+  //Used for on change quantities
+  public onChangeQuantity(quantity) {
+    this.getUnit(quantity)
+    console.log(quantity)
 
+  }
+  public getConversion() {
+    this.httpservice.getConversion(this.unitObj).subscribe(data => this.result = data);
 
+  }
+  //Used for on change Unit
+  public onToUnitChange(value) {
+    this.unitObj.toUnit = value;
+    this.getConversion();
+  }
+
+  public onFromUnitChange(value) {
+    this.unitObj.fromUnit = value;
+    this.getConversion();
+  }
 }

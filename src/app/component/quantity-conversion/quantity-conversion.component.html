@@ -1,73 +1,38 @@
-<div class="card-shift">
-  <mat-card class="card-style">
-    <mat-form-field class="select-style">
+<div class="qm-card-div-style">
 
-      <mat-label>Quantity</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let quantitytypes of quantityTypes">
-          {{quantitytypes}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <!-- </form> 
-  
-   
-  
- <br>
- <br>
-      <!-- <mat-form-field >
-      <mat-select class="select-style">
-        <label Quantity></label>
-        <mat-option *ngFor="let quantitytypes of quantityTypes">
-          {{quantitytypes}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
-    <div class="space">
-      <div class = "qm-input-div">
-        <input class="qm-input-style" [(ngModel)]="value">
-        <mat-form-field class = "qm-unit-unit-selector" appearance="fill">
-          <mat-label>Select</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let quantitytypes of quantityTypes">
-              {{quantitytypes}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <h1>=</h1>
-      <div class = "qm-input-div">
-        <input class="qm-input-style" [(ngModel)]="value">
-        <mat-form-field class = "qm-unit-unit-selector" appearance="fill">
-          <mat-label>Select</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let quantitytypes of quantityTypes">
-              {{quantitytypes}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-
-
-   
-      
-
-
-
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let quantitytypes of quantityTypes">
+  <mat-card class="qm-card-style">
+    <div class class="space-between">
+      <div>
+        <select (change) = "onChangeQuantity($event.target.value)" class="qm-value-selector">
+          <option *ngFor="let quantitytypes of quantityTypes">
             {{quantitytypes}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
+          </option>
+        </select>
+      </div>
 
-    
+      <div class="qm-value-space">
+        <div class="qm-input-div">
+          <input  class = "qm-input-style" [(ngModel)]= "unitObj.value">
+          <select (change) = "onToUnitChange($event.target.value)" class = "qm-unit-unit-selector">
+            <option *ngFor = "let unittypes of unitTypes">
+              {{unittypes}}
+            </option>
+          </select>
+        </div>
+        <div class = "equal-symbol-style">
+          <h1>=</h1>
+        </div>
+        <div class = "qm-input-div">
+          <input class = "qm-input-style" [ngModel]="result">
+          <select (change) = "onFromUnitChange($event.target.value)" class="qm-unit-unit-selector">
+            <option *ngFor="let unittypes of unitTypes">
+              {{unittypes}}
+            </option>
+          </select>
+        </div>
+      </div>
 
-
+    </div>
 
   </mat-card>
 
